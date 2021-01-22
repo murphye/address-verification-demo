@@ -8,10 +8,10 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>io.solo</groupId>
-	<artifactId>address-validation-service</artifactId>
+	<artifactId>address-verification-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>address-validation-service</name>
-	<description>Address Validation Service using SOAP/XML</description>
+	<name>address-verification-service</name>
+	<description>Address Verification Service using SOAP/XML</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>

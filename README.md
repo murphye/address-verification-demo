@@ -20,6 +20,13 @@ This demo reuses the WSDL specification for the [Experian Address Validation](ht
 
 This demo doesn't use the actual Experian Address Validation service endpoint. Instead, the WSDL was used to generate a dummy service that is implemented in Spring Boot. This service is only implemented for testing/demo purposes and isn't intended to replace the real Experian Address Validation service.
 
+### Spring Boot Guides Used
+
+Dependencies used were Spring Web, Spring Web Services, and Spring Boot Actuator.
+
+* https://spring.io/guides/gs/producing-web-service/
+* https://spring.io/guides/gs/spring-boot-kubernetes/
+
 
 
 

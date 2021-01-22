@@ -1,13 +1,13 @@
-package io.solo.addressvalidation;
+package io.solo.addressverification;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class AddressValidationServiceApplication {
+public class AddressVerificationServiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(AddressValidationServiceApplication.class, args);
+		SpringApplication.run(AddressVerificationServiceApplication.class, args);
 	}
 
 }
