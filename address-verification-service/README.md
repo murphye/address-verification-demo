@@ -7,8 +7,25 @@ Address Validation Service
 Generated clases will be created under `target/classes/com/qas/ondemand_2011_03` from the `src/main/resources/qas-ondemand.wsdl`.
 
 # Run
+`./mvnw clean compile`
 `./mvnw spring-boot:run`
 
-Curl the Service
+# Curl the Service
 `curl --header "content-type: text/xml" -d @request.xml http://localhost:8080/ws`
+
+# Build Docker Image
+`./mvnw spring-boot:build-image`
+
+`docker tag address-verification-service:0.0.1-SNAPSHOT murphye/address-verification-service`
+`docker push murphye/address-verification-service`
+
+# Deploy to Kubernetes
+`kubectl apply -f deployment.yaml`
+
+# Add Route
+`glooctl add route --path-exact /address --dest-name default-address-verification-service-8080 --prefix-rewrite /ws`
+
+# Test in Kubernets using XML Request
+`curl --header "content-type: text/xml" -d @request.xml http://localhost:8081/address`
+
 

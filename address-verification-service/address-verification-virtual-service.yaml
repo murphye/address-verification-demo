@@ -11,7 +11,7 @@ spec:
       - matchers:
           - methods:
               - POST
-            prefix: /json-to-xml
+            prefix: /address-json
         routeAction:
           single:
             upstream:
