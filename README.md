@@ -12,8 +12,8 @@ Future: Translate the SOAP/XML HTTP response back to JSON format.
 ## WSDL Specification
 
 Experian Address Validation Service
-WSDL: https://ws.ondemand.qas.com/ProOnDemand/V3/ProOnDemandService.asmx?WSDL
-List of Operations: https://ws.ondemand.qas.com/ProOnDemand/V3/ProOnDemandService.asmx
+* WSDL: https://ws.ondemand.qas.com/ProOnDemand/V3/ProOnDemandService.asmx?WSDL
+* List of Operations: https://ws.ondemand.qas.com/ProOnDemand/V3/ProOnDemandService.asmx
 
 
 
