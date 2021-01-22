@@ -11,7 +11,7 @@ Future: Translate the SOAP/XML HTTP response back to JSON format.
 
 ## WSDL Specification
 
-This demo reuses the WSDL specification for the Experian Address Validation Service.
+This demo reuses the WSDL specification for the [Experian Address Validation](https://www.experian.com/small-business/address-validation) service.
 
 * WSDL: https://ws.ondemand.qas.com/ProOnDemand/V3/ProOnDemandService.asmx?WSDL
 * List of Operations: https://ws.ondemand.qas.com/ProOnDemand/V3/ProOnDemandService.asmx
