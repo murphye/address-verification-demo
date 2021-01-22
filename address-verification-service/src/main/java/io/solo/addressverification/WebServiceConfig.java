@@ -26,6 +26,6 @@ public class WebServiceConfig extends WsConfigurerAdapter {
         SimpleWsdl11Definition  wsdl11Definition = new SimpleWsdl11Definition ();
         wsdl11Definition.setWsdl(new ClassPathResource("qas-ondemand.wsdl"));
 		return wsdl11Definition;
-	}
+    }
 
 }

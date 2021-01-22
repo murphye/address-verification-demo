@@ -1,5 +1,9 @@
 package io.solo.addressverification;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
 import com.qas.ondemand_2011_03.AddressLineType;
 import com.qas.ondemand_2011_03.DPVStatusType;
 import com.qas.ondemand_2011_03.LineContentType;
@@ -21,8 +25,19 @@ public class QASearchEndpoint {
 	@ResponsePayload
 	public QASearchResult verifyAddress(@RequestPayload QASearch request) {
 
+		// Parse out the request address into a List for use in generating the response
 		String searchString = request.getSearch();
-		// TODO: Parse the searchString to get some valid values
+		String[] searchTokens = Arrays.stream(searchString.split(" ")).map(String::trim).toArray(String[]::new);
+		List<String> addressTokens = Arrays.asList(searchTokens);
+		// Process the tokens in reverse order (starting with country)
+		Collections.reverse(addressTokens);
+
+		// Combine the remainder of the address tokens as the premise
+		String premise = "";
+		for(int i = addressTokens.size()-1; i > 3; i--) {
+			premise += addressTokens.get(i) + " ";
+		}
+		premise = premise.trim();
 
 		QASearchResult result = new QASearchResult();
 
@@ -37,27 +52,27 @@ public class QASearchEndpoint {
 		AddressLineType addressLine1 = new AddressLineType();
 		addressLine1.setLineContent(LineContentType.ADDRESS);
 		addressLine1.setLabel("Premise");
-		addressLine1.setLine("ABC 123");
+		addressLine1.setLine(premise);
 
 		AddressLineType addressLine2 = new AddressLineType();
 		addressLine2.setLineContent(LineContentType.ADDRESS);
 		addressLine2.setLabel("City name");
-		addressLine2.setLine("ABCD");
+		addressLine2.setLine(addressTokens.get(3));
 
 		AddressLineType addressLine3 = new AddressLineType();
 		addressLine3.setLineContent(LineContentType.ADDRESS);
 		addressLine3.setLabel("State code");
-		addressLine3.setLine("AB");
+		addressLine3.setLine(addressTokens.get(2));
 
 		AddressLineType addressLine4 = new AddressLineType();
 		addressLine4.setLineContent(LineContentType.ADDRESS);
 		addressLine4.setLabel("Zip-Code");
-		addressLine4.setLine("12345-9876");
+		addressLine4.setLine(addressTokens.get(1) + "-0000");
 
 		AddressLineType addressLine5 = new AddressLineType();
 		addressLine5.setLineContent(LineContentType.ADDRESS);
 		addressLine5.setLabel("Country");
-		addressLine5.setLine("UNITED STATES OF AMERICA");
+		addressLine5.setLine(addressTokens.get(0));
 
 		AddressLineType addressLine6 = new AddressLineType();
 		addressLine6.setLineContent(LineContentType.DATA_PLUS);

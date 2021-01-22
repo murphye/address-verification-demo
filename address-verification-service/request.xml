@@ -5,7 +5,7 @@
          <web:Country>USA</web:Country>
          <web:Engine Flatten="true" Timeout="1000">Verification</web:Engine>
          <web:Layout>RegB layout</web:Layout>
-         <web:Search>123 ABC AB 12345 USA</web:Search>
+         <web:Search>1001 99th St. E. Seattle WA 98101 USA</web:Search>
       </web:QASearch>
    </soapenv:Body>
 </soapenv:Envelope>

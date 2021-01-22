@@ -106,7 +106,8 @@
 					</sources>
 					<arguments>
 						<argument>-XautoNameResolution</argument>
-					</arguments>		
+					</arguments>
+					<noPackageLevelAnnotations>true</noPackageLevelAnnotations>
 				</configuration>   
 			</plugin>
 		</plugins>
