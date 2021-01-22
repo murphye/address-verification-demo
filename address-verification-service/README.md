@@ -8,6 +8,7 @@ Generated clases will be created under `target/classes/com/qas/ondemand_2011_03`
 
 ## Run
 `./mvnw clean compile`
+
 `./mvnw spring-boot:run`
 
 ## Curl the Service
@@ -17,6 +18,7 @@ Generated clases will be created under `target/classes/com/qas/ondemand_2011_03`
 `./mvnw spring-boot:build-image`
 
 `docker tag address-verification-service:0.0.1-SNAPSHOT murphye/address-verification-service`
+
 `docker push murphye/address-verification-service`
 
 ## Deploy to Kubernetes
