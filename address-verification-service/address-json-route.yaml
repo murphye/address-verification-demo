@@ -1,0 +1,46 @@
+apiVersion: gateway.solo.io/v1
+kind: RouteTable
+metadata:
+  name: address-json
+  namespace: gloo-system
+spec:
+  routes:
+    - matchers:
+        - methods:
+            - POST
+          prefix: /address-json
+      routeAction:
+        single:
+          upstream:
+            name: default-address-verification-service-8080
+            namespace: gloo-system
+      options:
+        prefixRewrite: /ws
+        transformations:
+          requestTransformation:
+            transformationTemplate:
+              headers:
+                "Content-Type":
+                  text: "text/xml"
+              body:
+                text: >-
+                  <soapenv:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:date="http://exslt.org/dates-and-times" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.qas.com/OnDemand-2011-03">
+                  <soapenv:Header/>
+                  <soapenv:Body>
+                  <web:QASearch>
+                  <web:Country>{{address_request.address_request_fields.alpha_country_code}}</web:Country>
+                  <web:Engine Flatten="true" Timeout="1000">Verification</web:Engine>
+                  <web:Layout>RegB layout</web:Layout>
+                  <web:Search>
+                  {{address_request.address_request_fields.line1_text}}
+                  {{address_request.address_request_fields.line2_text}}
+                  {{address_request.address_request_fields.line3_text}}
+                  {{address_request.address_request_fields.line4_text}}
+                  {{address_request.address_request_fields.city_text}}
+                  {{address_request.address_request_fields.region_area_cd}}
+                  {{address_request.address_request_fields.postal_code}}
+                  {{address_request.address_request_fields.alpha_country_code}}
+                  </web:Search>
+                  </web:QASearch>
+                  </soapenv:Body>
+                  </soapenv:Envelope>

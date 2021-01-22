@@ -1,0 +1,14 @@
+{
+    "address_request": {
+        "address_request_fields": {
+            "line1_text": "1001 99th St. E.",
+            "line2_text": "",
+            "line3_text": "",
+            "line4_text": "",
+            "city_text": "Seattle",
+            "region_area_cd": "WA",
+            "postal_code": "98101",
+            "alpha_country_code": "USA"
+        }
+    }
+}

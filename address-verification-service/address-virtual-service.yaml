@@ -1,0 +1,16 @@
+apiVersion: gateway.solo.io/v1
+kind: VirtualService
+metadata:
+  name: 'address'
+  namespace: 'gloo-system'
+spec:
+  virtualHost:
+    domains:
+    - '*'
+    routes:
+    - matchers:
+       - prefix: '/address-json'
+      delegateAction:
+        ref:
+          name: 'address-json'
+          namespace: 'gloo-system'

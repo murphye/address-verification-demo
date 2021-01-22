@@ -24,10 +24,12 @@ Generated clases will be created under `target/classes/com/qas/ondemand_2011_03`
 ## Deploy to Kubernetes
 `kubectl apply -f deployment.yaml`
 
-## Add Route
-`glooctl add route --path-exact /address --dest-name default-address-verification-service-8080 --prefix-rewrite /ws`
+## Virtual Service and Route
+`kubectl apply -f address-virtual-service.yaml`
 
-## Test in Kubernets using XML Request
-`curl --header "content-type: text/xml" -d @request.xml http://localhost:8081/address`
+`kubectl apply -f address-json-route.yaml`
+
+## Test in Kubernetes using XML Request
+`curl -X POST -H "Content-Type: application/json" -d @request.json http://localhost:8081/address-json`
 
 
