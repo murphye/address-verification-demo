@@ -14,6 +14,8 @@
 	<description>Address Verification Service using SOAP/XML</description>
 	<properties>
 		<java.version>11</java.version>
+		<javax.activation.version>1.2.0</javax.activation.version>
+        <jaxb.api.version>2.3.0</jaxb.api.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -32,6 +34,26 @@
 			<groupId>wsdl4j</groupId>
 			<artifactId>wsdl4j</artifactId>
 		</dependency>
+        <dependency> <!-- Needed for Java 11 -->
+            <groupId>com.sun.activation</groupId>
+            <artifactId>javax.activation</artifactId>
+            <version>${javax.activation.version}</version>
+        </dependency>
+        <dependency> <!-- Needed for Java 11 -->
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>${jaxb.api.version}</version>
+        </dependency>
+        <dependency> <!-- Needed for Java 11 -->
+            <groupId>com.sun.xml.bind</groupId>
+            <artifactId>jaxb-core</artifactId>
+            <version>${jaxb.api.version}</version>
+        </dependency>
+        <dependency> <!-- Needed for Java 11 -->
+            <groupId>com.sun.xml.bind</groupId>
+            <artifactId>jaxb-impl</artifactId>
+            <version>${jaxb.api.version}</version>
+        </dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
