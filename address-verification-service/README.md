@@ -29,7 +29,11 @@ Generated clases will be created under `target/classes/com/qas/ondemand_2011_03`
 
 `kubectl apply -f address-json-route.yaml`
 
-## Test in Kubernetes using XML Request
-`curl -X POST -H "Content-Type: application/json" -d @request.json http://localhost:8081/address-json`
+`glooctl add route --path-exact /address-xml --dest-name default-address-verification-service-8080 --prefix-rewrite /ws`
 
+## Test in Kubernetes using XML Request
+`curl -w "\n%{time_total}" --header "content-type: text/xml" -d @request.xml http://localhost:8081/address-xml`
+ 
+## Test in Kubernetes using JSON Request
+`curl -w "\n%{time_total}" -X POST -H "Content-Type: application/json" -d @request.json http://localhost:8081/address-json`
 
